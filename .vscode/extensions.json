@@ -1,0 +1,8 @@
+{
+  // VS Code запропонує встановити ці розширення, коли ви відкриєте папку репозиторію
+  "recommendations": [
+    "ms-vscode.cpptools",
+    "EditorConfig.EditorConfig",
+    "eamodio.gitlens"
+  ]
+}

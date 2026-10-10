@@ -1,0 +1,66 @@
+# --- Результати збірки: їх завжди можна отримати заново з початкового коду ---
+*.exe
+*.out
+*.o
+*.obj
+*.a
+*.lib
+*.dll
+*.so
+*.dylib
+*.pdb
+*.ilk
+*.idb
+*.exp
+*.i
+*.ii
+*.s
+main
+task1
+task2
+task3
+build/
+out/
+bin/
+obj/
+
+# --- Visual Studio 2022: службові папки і файли користувача ---
+.vs/
+x64/
+x86/
+Debug/
+Release/
+*.user
+*.suo
+*.aps
+*.VC.db
+*.VC.opendb
+*.ipch
+# .sln, .vcxproj, .vcxproj.filters — ЗБЕРІГАЄМО (вони потрібні, щоб відкрити проєкт на іншому ПК)
+
+# --- VS Code: особисті налаштування (спільні tasks.json / launch.json зберігаємо) ---
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# --- Інші IDE та системи збірки ---
+.idea/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+*.cbp
+*.layout
+*.depend
+
+# --- Операційні системи ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Тимчасові файли ---
+*.tmp
+*.bak
+*.swp
+*~

@@ -1,0 +1,45 @@
+{
+  // Налагодження активного файлу .cpp: F5 (спочатку виконується задача збірки з tasks.json).
+  // Точка зупину — F9 або клацання ліворуч від номера рядка; F10 — Step Over; F11 — Step Into.
+  // Введення з клавіатури працює у зовнішньому вікні консолі (externalConsole) або в терміналі VS Code.
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug: g++ / gdb (Windows, Linux)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileDirname}/${fileBasenameNoExtension}",
+      "windows": {
+        "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+        "miDebuggerPath": "C:\\msys64\\ucrt64\\bin\\gdb.exe"
+      },
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Зручний вивід контейнерів STL (std::string, std::vector)",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "build: g++ (debug)"
+    },
+    {
+      "name": "Debug: clang / lldb (macOS)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileDirname}/${fileBasenameNoExtension}",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "lldb",
+      "preLaunchTask": "build: g++ (debug)"
+    }
+  ]
+}

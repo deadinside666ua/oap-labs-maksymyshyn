@@ -1,0 +1,63 @@
+# Стиль коду курсу «Програмування (ОАП)», ТФК НУ «Львівська політехніка».
+# Базується на Google C++ Style з відступом 4 пробіли та рядком до 100 символів.
+# Visual Studio 2022: Ctrl+K, Ctrl+D.   VS Code: Shift+Alt+F.   Термінал: clang-format -i main.cpp
+---
+Language: Cpp
+BasedOnStyle: Google
+Standard: c++17
+
+# Відступи
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+ContinuationIndentWidth: 4
+AccessModifierOffset: -4
+IndentCaseLabels: true
+NamespaceIndentation: None
+
+# Довжина рядка
+ColumnLimit: 100
+
+# Фігурні дужки: відкриваюча на тому ж рядку (K&R / Attach)
+BreakBeforeBraces: Attach
+
+# Короткі конструкції в один рядок — заборонено: if/for/while завжди з дужками на окремих рядках
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+AllowShortBlocksOnASingleLine: Never
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortLambdasOnASingleLine: All
+
+# Пробіли
+SpaceBeforeParens: ControlStatements
+SpaceAfterCStyleCast: false
+SpacesInParentheses: false
+SpacesBeforeTrailingComments: 2
+SpaceBeforeAssignmentOperators: true
+SpaceAfterTemplateKeyword: true
+
+# Вказівники та посилання: int* p, int& r
+DerivePointerAlignment: false
+PointerAlignment: Left
+ReferenceAlignment: Left
+
+# Оголошення
+AlignConsecutiveAssignments: false
+AlignConsecutiveDeclarations: false
+AlignTrailingComments: true
+AlignOperands: Align
+BinPackArguments: true
+BinPackParameters: true
+
+# Порожні рядки
+MaxEmptyLinesToKeep: 1
+KeepEmptyLinesAtTheStartOfBlocks: false
+
+# #include: сортувати в межах блоку, не перегруповувати
+SortIncludes: CaseSensitive
+IncludeBlocks: Preserve
+
+# Коментарі не переносити автоматично (щоб не ламати кирилицю у виправданих довгих рядках)
+ReflowComments: false
+...

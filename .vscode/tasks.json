@@ -1,0 +1,111 @@
+{
+  // Збірка активного файлу .cpp: Ctrl+Shift+B (Terminal → Run Build Task).
+  // Результат: виконуваний файл поряд з .cpp (main → main.exe у Windows).
+  // Потрібен g++ у PATH: MSYS2 UCRT64 (Windows), build-essential (Linux), Xcode CLT (macOS, g++ = clang++).
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build: g++ (debug)",
+      "type": "shell",
+      "command": "c++",
+      "args": [
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-pedantic",
+        "-g",
+        "${file}",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}"
+      ],
+      "windows": {
+        "args": [
+          "-std=c++17",
+          "-Wall",
+          "-Wextra",
+          "-pedantic",
+          "-g",
+          "${file}",
+          "-o",
+          "${fileDirname}\\${fileBasenameNoExtension}.exe"
+        ]
+      },
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "presentation": {
+        "reveal": "silent",
+        "clear": true
+      },
+      "detail": "g++ -std=c++17 -Wall -Wextra -pedantic -g main.cpp -o main"
+    },
+    {
+      "label": "build: g++ (release, -O2)",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-pedantic",
+        "-O2",
+        "${file}",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}"
+      ],
+      "windows": {
+        "args": [
+          "-std=c++17",
+          "-Wall",
+          "-Wextra",
+          "-pedantic",
+          "-O2",
+          "${file}",
+          "-o",
+          "${fileDirname}\\${fileBasenameNoExtension}.exe"
+        ]
+      },
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "group": "build",
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "detail": "Оптимізована збірка без інформації для налагоджувача"
+    },
+    {
+      "label": "run: зібрати і запустити",
+      "type": "shell",
+      "command": "${fileDirname}/${fileBasenameNoExtension}",
+      "windows": {
+        "command": "${fileDirname}\\${fileBasenameNoExtension}.exe"
+      },
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "dependsOn": [
+        "build: g++ (debug)"
+      ],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "focus": true,
+        "panel": "dedicated",
+        "clear": true
+      },
+      "detail": "Ctrl+Shift+P → Tasks: Run Test Task. Запуск у терміналі VS Code з введенням з клавіатури"
+    }
+  ]
+}
